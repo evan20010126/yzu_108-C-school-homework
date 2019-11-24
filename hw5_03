@@ -1,0 +1,85 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main (int argc,char** argv){
+	int a,b,c;
+	int k,o=1000000000,add,total=0,addnum;
+	int k1,o1=1000000000,add1,total1=0,addnum1;
+	int k2,o2=1000000000,add2,total2=0,addnum2;
+	cout << "Integer1:";
+	cin  >> a;
+	cout << "Integer2:";
+	cin  >> b;
+	cout << "Integer3:";
+	cin  >> c; 
+	
+	for (int i=10; ; o=o/10, i=i-1){
+		if (a/o!=0){
+			k = i;    /*k為位數*/
+			break;
+		}
+	} 
+	
+	for (int i=1; i<=1000000000; i = i*10){
+		add = a / i - (( a /(i*10))*10); 
+		total = total + pow(add,k); 
+	}
+	
+	if (a == total){
+		cout << "Result1:" << "Yes";
+		for (int i=pow(10,k-1); i>=1 ; i = i/10){
+			addnum = a / i - ((a/(i*10))*10);
+			cout << " " << pow(addnum,k); 
+			}
+	}else{
+		cout << "Result1:" << "No";
+	}
+	
+	
+	for (int i=10; ; o1=o1/10, i=i-1){
+		if (b/o1!=0){
+			k1 = i;    /*k為位數*/
+			break;
+		}
+	} 
+	
+	for (int i=1; i<=1000000000; i = i*10){
+		add1 = b / i - (( b /(i*10))*10); 
+		total1 = total1 + pow(add1,k1);
+	}
+	
+	if (b == total1){
+		cout << "\nResult2:" << "Yes";
+		for (int i=pow(10,k1-1); i>=1 ; i = i/10){
+			addnum1 = b / i - ((b/(i*10))*10);
+			cout << " " << pow(addnum1,k1); 
+			}
+	}else{
+		cout << "\nResult2:" << "No";
+	}
+	
+	
+	for (int i=10; ; o2=o2/10, i=i-1){
+		if (c/o2!=0){
+			k2 = i;    /*k為位數*/
+			break;
+		}
+	} 
+	
+	for (int i=1; i<=1000000000; i = i*10){
+		add2 = c / i - (( c /(i*10))*10); 
+		total2 = total2 + pow(add2,k2);
+	}
+	
+	if (c == total2){
+		cout << "\nResult3:" << "Yes";
+		for (int i=pow(10,k2-1); i>=1 ; i = i/10){
+			addnum2 = c / i - ((c/(i*10))*10);
+			cout << " " << pow(addnum2,k2); 
+			}
+	}else{
+		cout << "\nResult3:" << "No";
+	}
+	return 0;
+} 
