@@ -1,0 +1,61 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main(int argc, char** argv){
+	
+	int a,b,c,num1,num2;
+	
+	cout << "Integer1:";
+	cin  >> a;
+	cout << "Integer2:";
+	cin  >> b;
+	cout << "Integer3:";
+	cin  >> c;
+	
+	cout << "Result1:";
+	for (int i=0; i<=1 ; i++){
+		num1 = a/ int(pow(10,i))%10;
+		num2 = a/ int(pow(10,(4-i))) %10;
+
+		if (num1!=num2){
+			cout << "no";
+			break;
+		}
+		if (i == 1){
+			cout << "yes";
+		}
+	}
+	
+	cout << "\nResult2:";
+	for (int i=0; i<=1 ; i++){
+		num1 = b/ int(pow(10,i))%10;
+		num2 = b/ int(pow(10,(4-i))) %10;
+
+		if (num1!=num2){
+			cout << "no";
+			break;
+		}
+		if (i == 1){
+			cout << "yes";
+		}
+	}
+	
+	cout << "\nResult3:";
+	for (int i=0; i<=1 ; i++){
+		num1 = c/ int(pow(10,i))%10;
+		num2 = c/ int(pow(10,(4-i))) %10;
+
+		if (num1!=num2){
+			cout << "no";
+			break;
+		}
+		if (i == 1){
+			cout << "yes";
+		}
+	}
+	
+	
+	
+	return 0;
+}
