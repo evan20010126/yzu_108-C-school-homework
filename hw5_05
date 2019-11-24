@@ -1,0 +1,47 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void happynum(int key){
+	int daotax,num,a,total=0;
+	daotax = 1;
+	a = key; 
+	
+	while (true){
+		num = a / daotax %10;
+		total = total + pow(num,2);
+
+		if ( (a / daotax) == 0){
+			if (total == key){
+				cout << "Unhappy";
+				break;
+			}else if (total ==1){
+				cout << "Happy";
+				break;
+			}
+			daotax = 1;
+			a = total;
+			total = 0;
+		}else{
+			daotax = daotax *10;
+		}
+	}
+	
+}
+
+int main(int argc,char** argv){
+	int key1,key2,key3;
+	cout << "Input1:";
+	cin  >> key1;
+	cout << "Input2:";
+	cin  >> key2;
+	cout << "Input3:";
+	cin  >> key3;
+	cout << "Result1:";
+	happynum(key1);
+	cout << "\nResult2:";
+	happynum(key2);
+	cout << "\nResult3:";
+	happynum(key3);
+	return 0;
+} 
