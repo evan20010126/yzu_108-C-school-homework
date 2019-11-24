@@ -1,0 +1,102 @@
+#include <iostream>
+using namespace std;
+
+int main(int argc, char** argcv)
+{
+	int a,b,c,d,e,f,my1,my2,my3,total=0;
+	cout << "Special Prize";
+	cout << "\nNo1:";
+	cin  >> a;
+	cout << "No2:";
+	cin  >> b;
+	cout << "No3:";
+	cin  >> c;
+	cout << "First Prize";
+	cout << "\nNo1:";
+	cin  >> d;
+	cout << "No2:";
+	cin  >> e;
+	cout << "No3:";
+	cin  >> f;
+	cout << "My number";
+	cout << "\nNo1:";
+	cin  >> my1;
+	cout << "No2:";
+	cin  >> my2;
+	cout << "No3:";
+	cin  >> my3;
+	if (a == my1 || b == my1 || c ==my1)
+	{
+		total = total + 2000000;
+	} 
+	if (a == my2 || b == my2 || c ==my2)
+	{
+		total = total + 2000000;
+	}
+	if (a == my3 || b == my3 || c ==my3)
+	{
+		total = total + 2000000;
+	}
+	
+	if (d == my1 || e == my1 || f ==my1)
+	{
+		total = total + 200000;
+	}else if (d%10000000 == my1%10000000 || e%10000000 == my1%10000000 || f%10000000 == my1%10000000)
+	{
+		total = total + 40000;
+	}else if (d%1000000 == my1%1000000 || e%1000000 == my1%1000000 || f%1000000 == my1%1000000)
+	{
+		total = total + 10000;
+	}else if (d%100000 == my1%100000 || e%100000 == my1%100000 || f%100000 == my1%100000)
+	{
+		total = total + 4000;
+	}else if (d%10000 == my1%10000 || e%10000 == my1%10000 || f%10000 == my1%10000)
+	{
+		total = total + 1000;
+	}else if (d%1000 == my1%1000 || e%1000 == my1%1000 || f%1000 == my1%1000)
+	{
+		total = total + 200;
+	}
+	
+	if (d == my2 || e == my2 || f ==my2)
+	{
+		total = total + 200000;
+	}else if (d%10000000 == my2%10000000 || e%10000000 == my2%10000000 || f%10000000 == my2%10000000)
+	{
+		total = total + 40000;
+	}else if (d%1000000 == my2%1000000 || e%1000000 == my2%1000000 || f%1000000 == my2%1000000)
+	{
+		total = total + 10000;
+	}else if (d%100000 == my2%100000 || e%100000 == my2%100000 || f%100000 == my2%100000)
+	{
+		total = total + 4000;
+	}else if (d%10000 == my2%10000 || e%10000 == my2%10000 || f%10000 == my2%10000)
+	{
+		total = total + 1000;
+	}else if (d%1000 == my2%1000 || e%1000 == my2%1000 || f%1000 == my2%1000)
+	{
+		total = total + 200;
+	}
+	
+	if (d == my3 || e == my3 || f ==my3)
+	{
+		total = total + 200000;
+	}else if (d%10000000 == my3%10000000 || e%10000000 == my3%10000000 || f%10000000 == my3%10000000)
+	{
+		total = total + 40000;
+	}else if (d%1000000 == my3%1000000 || e%1000000 == my3%1000000 || f%1000000 == my3%1000000)
+	{
+		total = total + 10000;
+	}else if (d%100000 == my3%100000 || e%100000 == my3%100000 || f%100000 == my3%100000)
+	{
+		total = total + 4000;
+	}else if (d%10000 == my3%10000 || e%10000 == my3%10000 || f%10000 == my3%10000)
+	{
+		total = total + 1000;
+	}else if (d%1000 == my3%1000 || e%1000 == my3%1000 || f%1000 == my3%1000)
+	{
+		total = total + 200;
+	}
+	cout << "Output:" << total;
+	return 0;
+}
