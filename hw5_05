@@ -44,4 +44,5 @@ int main(int argc,char** argv){
 	cout << "\nResult3:";
 	happynum(key3);
 	return 0;
+	
 } 
