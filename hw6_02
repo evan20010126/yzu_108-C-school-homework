@@ -1,0 +1,83 @@
+#include <iostream>
+using namespace std;
+
+int main(int argc,char** argv){
+	int a,b,plus=0,num1,num2,ans=0;
+	cout << "Test1\n";
+	cout << "N:";
+	cin  >> a;
+	cout << "M:";
+	cin  >> b;
+	
+	cout << "Result:";
+		for (int i=1; i<=1000 ; i=i*10){
+			num1 = a/i%10;
+			num2 = b/i%10;
+			
+			if (plus >= 10){
+				plus = num1 + num2 + 1;
+			}else{
+				plus = num1 + num2;
+			}
+			
+			if (plus>=10){
+				ans = ans + 1;
+			}
+	}
+	cout << ans << endl;
+
+
+	int a1,b1,plus1=0,num3,num4,ans1=0;
+	cout << "Test2\n";
+	cout << "N:";
+	cin  >> a1;
+	cout << "M:";
+	cin  >> b1;
+	
+	cout << "Result:";
+		for (int i=1; i<=1000 ; i=i*10){
+			num3 = a1/i%10;
+			num4 = b1/i%10;
+			
+			if (plus1 >= 10){
+				plus1 = num3 + num4 + 1;
+			}else{
+				plus1 = num3 + num4;
+			}
+			
+			if (plus1>=10){
+				ans1 = ans1 + 1;
+			}
+	}
+	cout << ans1 << endl;
+	
+	int a2,b2,plus2=0,num5,num6,ans2=0;
+	cout << "Test3\n";
+	cout << "N:";
+	cin  >> a2;
+	cout << "M:";
+	cin  >> b2;
+	
+	cout << "Result:";
+		for (int i=1; i<=1000 ; i=i*10){
+			num5 = a2/i%10;
+			num6 = b2/i%10;
+			
+			if (plus2 >= 10){
+				plus2 = num5 + num6 + 1;
+			}else{
+				plus2 = num5 + num6;
+			}
+			
+			if (plus2>=10){
+				ans2 = ans2 + 1;
+			}
+	}
+	cout << ans2 ;
+
+
+
+
+	
+	return 0;
+} 
