@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int main(int argc, char** argv){
+	int n1,key1,ans1;
+	int n2,key2,ans2;	
+	cout << "Test1\n";
+	cout << "n:";
+	cin  >> n1;
+	for (int i=1; i<=n1 ; i++){
+		cout << "Integer" << i << ":";
+		cin  >> key1;
+		if (i==1){
+			ans1 = key1;
+		}
+		if (key1 >= ans1){
+			ans1 = key1;
+		}
+	}
+	
+	cout << "Test2\n";
+	cout << "n:";
+	cin  >> n2;
+	for (int i=1; i<=n2 ; i++){
+		cout << "Integer" << i << ":";
+		cin  >> key2;
+		if (i==1){
+			ans2 = key2;
+		}
+		if (key2 >= ans2){
+			ans2 = key2;
+		}
+	}
+	cout << "Result1:" << ans1 << endl;
+	cout << "Result2:" << ans2;
+	return 0;
+}
