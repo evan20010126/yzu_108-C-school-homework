@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main(int argc, char** argv){
+	int a,b;
+	cout << "Integer1:";
+	cin  >> a;
+	cout << "Integer2:";
+	cin  >> b;
+	cout << "Result1:";
+	
+	for (int i=1; i<=a ; i=i+2){
+		if (i >= a){
+			cout << i << endl;
+		}else{
+			cout << i << " ";
+		}
+	}
+	
+	cout << "Result2:";
+	for (int i=1; i<=b ; i=i+2){
+		if (i >= b){
+			cout << i ;
+		}else{
+			cout << i << " ";
+		}
+	}
+	
+	return 0;
+} 
