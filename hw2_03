@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+const float pi = 3.1415926;
+
+int main(int argc,char** argv){
+	int R;
+	
+	cout << "Input:" ;
+	cin  >> R;
+	cout << "R:" << R << endl;
+	cout << "Volume:" << (4.0/3.0)*pi*R*R*R;
+	return 0;
+} 
