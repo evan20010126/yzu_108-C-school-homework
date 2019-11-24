@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+void perfect(int num){
+	int total=0;
+	for (int i=1; i < num ; i++){
+		if (num%i==0){
+			total = total + i;
+		}
+	}
+	if (num == total){
+		cout << "Yes";
+		for (int i=1; i<num ; i++){
+			if (num%i==0){
+				cout << " "<< i;
+			}
+		}
+	}else{
+		cout << "No";
+	}
+}
+
+int main(int argc,char** argv){
+	int a,b,c;
+	cout << "Integer1:";
+	cin  >> a;
+	cout << "Integer2:";
+	cin  >> b;
+	cout << "Integer3:";
+	cin  >> c;
+	
+	cout << "Result1:" ;
+	perfect(a);
+	cout << endl;
+	
+	cout << "Result2:";
+	perfect(b);
+	cout << endl;
+	
+	cout << "Result3:";
+	perfect(c);
+	
+	return 0;
+} 
