@@ -1,0 +1,82 @@
+#include <iostream>
+using namespace std;
+
+int main(int argc, char** argv){
+	int a,b;
+	cout << "input1:";
+	cin  >> a;
+	cout << "input2:";
+	cin  >> b;
+	
+	float rbefore1,rbefore2;
+	if (a <= 600){
+		rbefore1 = a*0.5;
+		if (rbefore1 < 200){
+			cout << "output1:" << rbefore1 << endl;
+		}else if(rbefore1 >200 && rbefore1 <450){
+			cout << "output1:" << rbefore1 * 0.9 << endl;
+		}else if(rbefore1 >450 && rbefore1 <750){
+			cout << "output1:" << rbefore1 * 0.8 << endl;
+		}else if(rbefore1 >750){
+			cout << "output1:" << rbefore1 * 0.7 << endl;
+		}
+	}else if(a >= 601 && a<=1200){
+		rbefore1 = (600*0.5)+((a-600)*0.45);
+		if (rbefore1 < 200){
+			cout << "output1:" << rbefore1 << endl;
+		}else if(rbefore1 >200 && rbefore1 <450){
+			cout << "output1:" << rbefore1 * 0.9 << endl;
+		}else if(rbefore1 >450 && rbefore1 <750){
+			cout << "output1:" << rbefore1 * 0.8 << endl;
+		}else if(rbefore1 >750){
+			cout << "output1:" << rbefore1 * 0.7 << endl;
+		}
+	}else if(a >=1200){
+		rbefore1 = (600*0.5)+(600*0.45)+((a-1200)*0.4);
+		if (rbefore1 < 200){
+			cout << "output1:" << rbefore1 << endl;
+		}else if(rbefore1 >200 && rbefore1 <450){
+			cout << "output1:" << rbefore1 * 0.9 << endl;
+		}else if(rbefore1 >450 && rbefore1 <750){
+			cout << "output1:" << rbefore1 * 0.8 << endl;
+		}else if(rbefore1 >750){
+			cout << "output1:" << rbefore1 * 0.7 << endl;
+		}
+	}
+	
+	if (b <= 600){
+		rbefore2 = b*0.5;
+		if (rbefore2 < 200){
+			cout << "output2:" << rbefore2;
+		}else if(rbefore2 >200 && rbefore2 <450){
+			cout << "output2:" << rbefore2 * 0.9;
+		}else if(rbefore2 >450 && rbefore2 <750){
+			cout << "output2:" << rbefore2 * 0.8;
+		}else if(rbefore2 >750){
+			cout << "output2:" << rbefore2 * 0.7;
+		}
+	}else if(b >= 601 && b<=1200){
+		rbefore2 = (600*0.5)+((b-600)*0.45);
+		if (rbefore2 < 200){
+			cout << "output2:" << rbefore2;
+		}else if(rbefore2 >200 && rbefore2 <450){
+			cout << "output2:" << rbefore2 * 0.9;
+		}else if(rbefore2 >450 && rbefore2 <750){
+			cout << "output2:" << rbefore2 * 0.8;
+		}else if(rbefore2 >750){
+			cout << "output2:" << rbefore2 * 0.7;
+		}
+	}else if(b >=1200){
+		rbefore2 = (600*0.5)+(600*0.45)+((b-1200)*0.4);
+		if (rbefore2 < 200){
+			cout << "output2:" << rbefore2;
+		}else if(rbefore2 >200 && rbefore2 <450){
+			cout << "output2:" << rbefore2 * 0.9;
+		}else if(rbefore2 >450 && rbefore2 <750){
+			cout << "output2:" << rbefore2 * 0.8;
+		}else if(rbefore2 >750){
+			cout << "output2:" << rbefore2 * 0.7;
+		}
+	}
+	return 0;
+} 
