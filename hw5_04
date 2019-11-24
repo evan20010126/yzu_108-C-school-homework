@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main(int argc,char** argv){
+	int a,b;
+	cout << "Input1:";
+	cin  >> a;
+	cout << "Input2:";
+	cin  >> b;
+	cout << "Result1:\n";
+	for (int k=1; k<=a ;k++){ /*做幾行*/
+		for (int i=1 ; i<=a-k ; i++){
+			cout << " ";
+		}
+		for (int r=1; r<=2*k-1; r++){
+			cout << "*"; 
+		}
+		cout << endl;
+	}
+	
+	cout << "Result2:\n";
+	for (int k=1; k<=b ;k++){ /*做幾行*/
+		for (int i=1 ; i<=b-k ; i++){
+			cout << " ";
+		}
+		for (int r=1; r<=2*k-1; r++){
+			cout << "*"; 
+		}
+		if (k!=b){
+			cout << endl;
+		}
+	}
+	
+	return 0;
+}
