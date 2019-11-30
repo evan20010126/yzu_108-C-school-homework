@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int prime(int n){
+	int k;
+	k = 1; //第k個質數 已包含2 
+	if (n==k){
+		return 2;
+	}else{
+		for (int i=3 ; ; i++){
+			for (int r=2 ; r<i ; r++){
+				if (i%r == 0){	
+					break;
+				}else if(i%r!=0 && r==i-1){
+					k = k+1;
+				}
+			}
+			if (n==k){
+				return i;
+				break;
+			}
+		}
+	}		
+}
+
+
+
+int main(int argc,char** argv){
+	int a,b;
+	cout << "Integer1:";
+	cin  >> a;
+	cout << "Integer2:";
+	cin  >> b;
+	cout << "Result1:" << prime(a) << endl;
+	cout << "Result2:" << prime(b);
+	return 0;
+}
