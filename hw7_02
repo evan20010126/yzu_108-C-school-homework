@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+void drawrec(int w, int h){
+	for (int i=1; i<=h ; i++){
+		for (int r=1; r<=w ;r++){
+			cout << r*i ;
+			if (r!=w){
+				cout << " ";
+			}
+		}
+		if (i!=h){
+		cout << endl;
+		}
+	}
+}
+
+
+
+int main(int argc,char** argv){
+	int a,b,a1,b1;
+	cout << "W1:";
+	cin  >> a;
+	cout << "H1:";
+	cin  >> b;
+	cout << "W2:";
+	cin  >> a1;
+	cout << "H2:";
+	cin  >> b1;
+	cout << "Result1:\n";
+	drawrec(a,b);
+	cout << "\nResult2:\n";
+	drawrec(a1,b1);
+	
+	return 0;
+}
