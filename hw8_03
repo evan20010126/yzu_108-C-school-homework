@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+
+void delta(){
+}
+
+
+int main(int argc,char** argv){
+	int aaa[5];
+	int key;
+	for (int i=0; i<=4 ; i++){
+		do{
+			cout << "Integer" << i+1 << ":";
+			cin  >> aaa[i];
+		}while(aaa[i]>10 || aaa[i]<1);
+	}
+	cout << "Array:";
+	for (int i=0; i<=4 ; i++){
+		cout << aaa[i];
+		if (i!=4){
+			cout << " ";
+		}
+	}
+	
+	cout << "\nReverse:";
+	for (int i=4; i>=0 ; i--){
+		cout << aaa[i];
+		if (i!=0){
+			cout << " ";
+		}
+	}
+	
+	cout << "\nArrayeven:";
+	for (int i=2; i<=5 ;i=i+2){
+		cout << aaa[i];
+		if (i!=4){
+			cout << " ";
+		}
+	}
+	
+	cout << "\nArraysame:";
+	for (int i=0; i<=4 ; i++){ //因空白問題 把第一個看成一個 其他看成 " "+數字 
+		if (aaa[i]==i){		
+			cout << i;
+			for (int r=i+1; r<=4 ;r++){
+				if (aaa[r]==r){
+					cout << " " << r;
+				}
+			}
+			break;
+		}
+	}
+	
+	cout << "\nMin:";
+	for (int i=1; i<=4 ; i++){ //預設第一項最大
+		if (aaa[0] > aaa[i]){
+			aaa[0] = aaa[i];
+		}
+	}
+	cout << aaa[0];
+	return 0;
+} 
