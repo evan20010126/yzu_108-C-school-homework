@@ -1,1 +1,32 @@
+#include <iostream>
+using namespace std;
 
+double asd(int n){
+	double total = 1.0;
+	if (n==0){
+		total = 1.0;
+	}else{
+		for (int i=1; i<=n ;i++){
+			total = total * i;
+		}
+	}
+	return total;
+}
+
+
+int main (int argc,char** argv){
+	int n1,m1,n2,m2;
+	cout << "Test1" << endl;
+	cout << "N:";
+	cin  >> n1;
+	cout << "M:"; 
+	cin  >> m1;
+	cout << "Test2" << endl;
+	cout << "N:";
+	cin  >> n2;
+	cout << "M:";
+	cin  >> m2;
+	cout << "Result1:" << unsigned (asd(n1)/ (asd(n1-m1) * asd(m1)));
+	cout << endl << "Result2:" << unsigned(asd(n2)/ (asd(n2-m2) * asd(m2)));
+	return 0;
+} 
