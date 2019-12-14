@@ -1,0 +1,58 @@
+#include <iostream> //fabs
+#include <cmath>
+using namespace std;
+
+int main(int argc,char** argv){
+	int i,i1,n,n1,eee=0;
+	
+	cout << "Test1\n";
+	cout << "i:";
+	cin  >> i;
+	cout << "n:";
+	cin  >> n;
+	
+	int aaa[n];
+	
+	for (int R=0;R<=n-1;R++){
+		cout << "Integer" << R+1 << ":";
+		cin  >> aaa[R];
+	}
+	
+	for (int K=n-2;K>=0;K--){
+		for(int J=0;J<=K;J++){
+			if (aaa[J] > aaa[J+1]){
+				eee = aaa[J+1];
+				aaa[J+1] = aaa[J];
+				aaa[J] = eee;
+			}
+		}
+	}
+	
+	cout << "Test2\n";
+	cout << "i:";
+	cin  >> i1;
+	cout << "n:";
+	cin  >> n1;
+	
+	int bbb[n1];
+	
+	for (int R=0;R<=n1-1;R++){
+		cout << "Integer" << R+1 << ":";
+		cin  >> bbb[R];
+	}
+	
+	for (int K=n1-2;K>=0;K--){
+		for(int J=0;J<=K;J++){
+			if (bbb[J] > bbb[J+1]){
+				eee = bbb[J+1];
+				bbb[J+1] = bbb[J];
+				bbb[J] = eee;
+			}
+		}
+	}
+	
+	cout << "Result1:" << aaa[i-1];
+	cout << "\nResult2:" << bbb[i1-1];
+	
+	return 0;
+} 
