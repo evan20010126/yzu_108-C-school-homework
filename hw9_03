@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+//應該要有更好的解法
+
+int main(int argc, char** argv){
+	int aaa[5];
+	
+	cout << "Integer1:";
+	cin  >> aaa[0];
+	
+	cout << "Integer2:";
+	cin  >> aaa[1];
+	while(aaa[1]==aaa[0]){
+		cout << "Duplicate!" << endl;
+		cout << "Integer2:";
+		cin  >> aaa[1];
+	}
+	
+	cout << "Integer3:";
+	cin  >> aaa[2];
+	while(aaa[2]==aaa[0] || aaa[2]==aaa[1]){
+		cout << "Duplicate!" << endl;
+		cout << "Integer3:";
+		cin  >> aaa[2];
+	}
+	
+	cout << "Integer4:";
+	cin  >> aaa[3];
+	while(aaa[3]==aaa[0] || aaa[3]==aaa[1] || aaa[3]==aaa[2]){
+		cout << "Duplicate!" << endl;
+		cout << "Integer4:";
+		cin  >> aaa[3];
+	}
+	
+	cout << "Integer5:";
+	cin  >> aaa[4];
+	while(aaa[4]==aaa[0] || aaa[4]==aaa[1] || aaa[4]==aaa[2] || aaa[4]==aaa[3]){
+		cout << "Duplicate!" << endl;
+		cout << "Integer5:";
+		cin  >> aaa[4];
+	}
+	
+	cout << "Result:";
+	
+	for (int i=0;i<=4;i++){
+		cout << aaa[i];
+		if (i!=4){
+			cout << " ";
+		}
+	}
+	return 0;
+}
