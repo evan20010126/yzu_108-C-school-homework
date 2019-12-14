@@ -1,0 +1,38 @@
+#include <iostream> //fabs
+#include <cmath>
+using namespace std;
+
+int main(int argc,char** argv){
+	int aaa[5];
+	int key,numberkey;
+	for (int i=0;i<=4;i++){
+		cout << "Input" << i+1 << ":";
+		cin  >> aaa[i];
+	}
+	cout << "Compare:";
+	cin  >> key;
+	
+	numberkey = fabs(aaa[0] - key);
+	
+	for (int i=0;i<=3;i++){
+		if ( fabs(aaa[i]-key) >= fabs(aaa[i+1]-key) ){
+			numberkey = fabs(aaa[i+1] - key) ;
+		}
+	}
+	
+	cout << "Result:";
+	
+	for (int i=0;i<=4; i++){
+		if ( fabs(aaa[i]-key) == numberkey ){
+			cout << aaa[i];
+			for(int r=i+1;r<=4;r++){
+				if ( fabs(aaa[r]-key) == numberkey){
+					cout << " " << aaa[r];
+				}
+			}
+			break;
+		}
+	}
+	
+	return 0;
+} 
