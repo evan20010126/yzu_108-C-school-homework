@@ -1,0 +1,43 @@
+//找王牌 
+#include <iostream>
+using namespace std;
+
+int card;
+
+int find(int k[]){ //一副牌k[] 把它整理  
+	int card02 = k[1]; 
+	for (int i=2 ; i<=card ;i++){
+		k[i-2] = k[i];
+	}
+	k[card-1-1] = card02; //倒數第二張(index=card-1-1) 
+	card--;
+	
+	if (card>2){
+		return find(k);
+	}else if (card==2){
+		return k[1];
+	} 
+}
+int main(int argc,char** argv){
+	cout << "Test1\n";
+	cout << "N:";
+	cin  >> card; //card為牌數 
+	int aaa[500000];
+	for (int i=1; i<=card ;i++){
+		aaa[i-1] = i;
+	}
+	
+	int ans1 = find(aaa);
+	
+	cout << "Test2\n";
+	cout << "N:";
+	cin  >> card; //card為牌數
+	for (int i=1; i<=card ;i++){
+		aaa[i-1] = i;
+	}
+	
+	cout << "Result1:" << ans1 << endl;
+	cout << "Result2:" << find(aaa);
+
+	return 0;
+} 
