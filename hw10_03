@@ -1,0 +1,85 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+//寫得太複雜 
+void intervalnum(int n){
+	int count=0 , countodd = 0, counteven = 0;
+	int aaa[99]={0} , aaaodd[99]={0} , aaaeven[99]={0};
+	int condition = 1;
+	
+	int q = n; //q拿來算位數 
+	while (q>0){
+		q = q/10;
+		count++; //count =位數 
+	}
+	
+	if (count%2==1){
+		countodd = count/2 +1;
+		counteven = count/2; 
+	}else{
+		countodd = count/2;
+		counteven = count/2;
+	}
+	
+	for (int i=0; i<=count-1 ; i++){ //分別存入陣列 
+		aaa[i] = (n/ int(pow(10,i))) %10;
+	}
+	
+	
+	int g=0;
+	int h=0;
+	
+	for (int i=0; i<=count-1 ; i++){
+		if (i%2==0){
+			aaaodd[g] = aaa[i];
+			g++;
+		}else{
+			aaaeven[h] = aaa[i];
+			h++;
+		}
+	}
+
+	//判斷
+	
+	for (int i=0; i<=countodd-1-1 ; i++){
+		if ( aaaodd[i] != aaaodd[i+1]){		//奇數位是否相等 
+			condition = 0;		
+		}
+	}
+	
+	for (int i=0; i<=counteven-1-1 ; i++){
+		if ( aaaeven[i] != aaaeven[i+1]){  //偶數位是否相等 
+			condition = 0;		
+		}
+	}
+	
+	if ( aaaodd[0] == aaaeven[0]){
+		condition = 0;                     //奇數不跟偶數一樣 
+	} 
+	
+	if (count < 3){
+		condition = 0;                     //至少要有3位數 
+	}
+	
+	if (condition == 1){
+		cout << "Yes";
+	}else if (condition == 0 ){
+		cout << "No";
+	}
+	
+}
+
+
+int main(int argc,char** argv){
+	int number[3];
+	for (int i=0; i<=2 ; i++){
+		cout << "Test" << i+1 <<endl;
+		cout << "Input:";
+		cin  >> number[i];
+		intervalnum(number[i]);
+		if ( i!=2){
+			cout << endl;
+		}
+	}
+	return 0;
+} 
