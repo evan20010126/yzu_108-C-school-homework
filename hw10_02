@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int find(int n){
+	int total=0;
+	for (int k=2; k<n ; k++){ //小於 
+		if (k==2){
+			total = total + k; //因為若j=2=k時 下面不會執行 +2 
+		}else{
+			for (int j=2; j<k ; j++){
+				if (k%j==0){
+					break;
+				}else if (k%j!=0 && j==k-1){
+					total = total +k;
+				}
+			}
+		}
+	}
+	return total;
+}
+
+int main(int argc,char** argv){
+	int num[3];
+	
+	for (int i=0; i<=2 ;i++){
+		cout << "Test" << i+1 << endl;
+		cout << "Input:";
+		cin  >> num[i];
+		cout << find(num[i]);
+		if (i!=2){
+			cout << endl;
+		}
+	}
+	
+	return 0;
+} 
