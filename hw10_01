@@ -1,1 +1,38 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
 
+int main(int argc,char** argv){
+	int aaa[5];
+	int key;
+	for (int i=0; i<=4 ;i++){
+		cout << "Input" << i+1 << ":";
+		cin  >> aaa[i];
+	}
+	
+	key = fabs(aaa[0]-aaa[1]); //預設第1.2個數字是最接近 
+	
+	for (int i=0; i<=4 ;i++){
+		for (int j=0; j<=4 ;j++){
+			if (i!=j){
+				if ( key > fabs(aaa[i]-aaa[j]) ){
+					key = fabs(aaa[i]-aaa[j]);
+				}
+			}
+		}
+	}	
+	
+	cout << "Result:";
+	for (int i=0 ;i<=5;i++){  //故意設5讓他可以跳出最外層迴圈 
+		if (i==5){
+			break;
+		}
+		for (int j=0; j<=4 ; j++){
+			if (fabs(aaa[i]-aaa[j]) == key){
+				cout << aaa[i] << " " << aaa[j];
+				i = 5; //讓他可以跳出迴圈 
+			}
+		}
+	}
+	return 0;
+} 
