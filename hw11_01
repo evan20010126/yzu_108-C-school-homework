@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+int main(int argc,char** argv){
+	int n;
+		
+
+	cout << "N:";
+	cin  >> n;
+
+	int aaa[2][n-1];
+	
+	for (int i=0 ; i<=n-1-1 ; i++){
+		aaa[0][i] = i+2 ;
+	}
+	
+	for (int i=0 ; i<=n-1-1 ; i++){
+		aaa[1][i] = 1 ;
+	}
+	
+	for (int i=0 ; i<=n-1-1 ; i++){
+		if (aaa[1][i] == 1){
+			for (int j=i+1 ; j<=n-1-1 ; j++){
+				if (aaa[0][j] % aaa[0][i] == 0){
+					aaa[1][j] = 0;
+				}
+			}
+		}
+	}
+	
+	cout << "Result:";
+	for (int i=0; i<=n-1-1 ; i++){
+		if ( aaa[1][i] == 1){
+			cout << aaa[0][i];
+			for (int j=i+1 ; j<=n-1-1 ; j++){
+				if ( aaa[1][j] == 1){
+					cout << " " << aaa[0][j];	
+				}
+			}
+			break;
+		}
+	}
+	return 0;
+}
