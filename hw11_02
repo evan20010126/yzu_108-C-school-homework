@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+
+
+int main(int argc,char** argv){
+	int n;
+	
+	cout << "N:";
+	cin  >> n;
+	
+	int aaa[n];
+	
+	for (int i=0 ; i<=n-1 ; i++){
+		aaa[i] = i+1;
+	}
+	/////////////////去掉偶數位子 
+	int k =0;
+	
+	for (int i=0 ; i<=n-1 ; i++){
+		if ( i%2 == 1 ){ //因從 0.1.2.3.4..... 若要去掉偶數位子 實際上為去掉奇數index 
+			aaa[i] = 0 ;
+		}
+	}
+	
+	for (int i=0; i<=n-1 ;i++){
+		if (aaa[i] != 0){
+			aaa[k] = aaa[i];
+			k++;   //最後K剛好是此陣列元素總數 
+		}
+	}
+	/////////////////////////////////////////
+	int delet = 1; //第二個數  之後會加1 變第三個數; 
+	
+	do{
+		n = k;
+		k =0;
+		for (int i=0 ; i<=n-1 ; i++){
+			if ( (i+1)%aaa[delet] == 0){ 
+				aaa[i] = 0 ;
+			}
+		}
+		
+		for (int i=0; i<=n-1 ;i++){
+			if (aaa[i] != 0){
+				aaa[k] = aaa[i];
+				k++;
+			}
+		}
+		
+		delet++;
+	}while( k >= aaa[delet]);
+	
+	//////////////////////////////////
+	for (int i=0 ; i<=k-1 ; i++){
+		cout << aaa[i];
+		for (int j=i+1 ; j<=k-1 ; j++){
+			cout << " " <<aaa[j];
+		}
+		break;
+	}
+	return 0;
+} 
