@@ -1,0 +1,43 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+void method(char array[]){
+	int intstr = strlen(array);
+	if ( (array[intstr-2]=='c' && array[intstr-1]=='h') || (array[intstr-2]=='s' && array[intstr-1]=='h') || array[intstr-1]=='s' || array[intstr-1]=='z' || array[intstr-1]=='x'){
+		strcat( array, "es");
+	}else if( (array[intstr-1]=='y'))
+	{
+		if (array[intstr-2]=='a' || array[intstr-2]=='e' ||array[intstr-2]=='i' ||array[intstr-2]=='o'||array[intstr-2]=='u'){
+			strcat( array, "s");	
+		}else{
+			array[intstr-1] = 'i';
+			strcat( array, "es");	
+		}
+	}else{
+		strcat( array, "s");
+	}
+} 
+
+int main(int argc,char** argv){
+	char aaa[50],bbb[50],ccc[50];
+	cout << "Input1:";
+	cin  >> aaa;
+	cout << "Input2:";
+	cin  >> bbb;
+	cout << "Input3:";
+	cin  >> ccc;
+	cout << "Result1:";
+	method(aaa);
+	cout << aaa;
+	
+	cout << "\nResult2:";
+	method(bbb);
+	cout << bbb;
+	
+	cout << "\nResult3:";
+	method(ccc);
+	cout << ccc;
+	
+	return 0;
+}
