@@ -1,0 +1,83 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int j;
+
+void Result(string s_array[], int n){
+	cout << n <<"Word ";
+	int count = 0;
+	for (int i=0; i<=j ; i++){
+		if (s_array[i].length() == n){
+			count++;
+		}
+	}
+	cout << count;
+	
+	if (count !=0){
+		cout << " (";
+		for (int i=0; i<=j ;i++){
+			if (s_array[i].length() == n){
+				cout << s_array[i];
+				for (int k=i+1; k<=j ; k++){
+					if (s_array[k].length() == n){
+						cout << "," << s_array[k];
+					}
+				}
+				break;
+			}
+		}
+		cout << ")";
+	}
+}
+
+int main(int argc, char** argv){
+	int k=0, allnum;
+	char input[100]="" ; //假裝最多100個字 
+	int spaceindex[50];
+	cout << "Input:";
+	cin.getline(input, 100, '\n');
+	
+	
+	
+	allnum = strlen(input);
+	for (int i=0; i<= allnum-1 ; i++){
+		if ( input[i] == ' '){
+			spaceindex[k] = i;   //k表空格所在的index
+			k++; //k最後剛好 表有幾個space  
+		}
+	}
+	
+	string s_array[k+1];
+	string inputstring(input); // char轉string 
+	
+	s_array[0] = inputstring.substr(0, spaceindex[0]) ; //第一個 
+	
+	j =1; 																					//中間的 
+	for (int i=0 ; i<= k-2 ; i++){
+		s_array[j] = inputstring.substr(spaceindex[i]+1, spaceindex[i+1]-spaceindex[i] -1) ;
+		j++;
+	}
+	s_array[j] = inputstring.substr(spaceindex[k-1]+1, allnum-1-spaceindex[k-1]) ;		//最後一個 
+	
+	Result(s_array, 1);
+	cout << endl;
+	Result(s_array, 2);
+	cout << endl;
+	Result(s_array, 3);
+	cout << endl;
+	Result(s_array, 4);
+	cout << endl;
+	Result(s_array, 5);
+	cout << endl;
+	Result(s_array, 6);
+	cout << endl;
+	Result(s_array, 7);
+	cout << endl;
+	Result(s_array, 8);
+	cout << endl;
+	Result(s_array, 9);
+	cout << endl;
+	Result(s_array, 10);
+	return 0;
+}
