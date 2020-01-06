@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+//眾數 
+
+int main(int argc, char** argv){
+	int array01[10];
+	int countnum[10]={1};
+	int num[10]={0};
+	
+	for (int i=0; i<=9; i++){
+		cout << "Integer:";
+		cin  >> array01[i];
+	}
+	
+	for (int i=8; i>=0; i--){
+		for (int j=0; j<=i ;j++){
+			if (array01[j] > array01[j+1]){
+				swap(array01[j], array01[j+1]);
+			}
+		}
+	}
+	
+	int j = 0;
+	
+	for (int i=0; i<=8 ;i++){
+		if (array01[i] == array01[i+1]){
+			countnum[j] = countnum[j] + 1;
+			num[j] = array01[i];
+		}else{
+			j++;
+		}
+	}
+	
+	
+	int MAXCOUNT = countnum[0]; // 預設第一項為最大 
+	
+	for (int i=1 ; i<=9 ;i++){
+		if ( MAXCOUNT < countnum[i] ){
+			MAXCOUNT = countnum[i];
+		} 
+	}
+	
+	cout << "Result:";
+	
+	for (int k=0; k<=9 ; k++){
+		if ( countnum[k]  == MAXCOUNT && num[k]!=0){
+			cout << num[k];
+			for (int p=k+1 ; p<=9 ;p++){
+				if (countnum[p] == MAXCOUNT && num[p]!=0){
+					cout << " " <<num[p]; 
+				}
+			}
+			break;
+		}
+	}
+	
+	return 0;
+} 
