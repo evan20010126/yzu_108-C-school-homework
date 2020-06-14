@@ -5,7 +5,7 @@
 // 2. 執行檔案的時候要記得安裝套件 不然執行不起來
 // 3. A班題目跟B班題目有不一樣
 // 4. 下面很多註解掉的console.log是我拿來測試用的 可以解掉註解看看結果
-// 5. 程式碼旁邊有註解 建議看一下 不然不知道我在寫甚麼東西
+// 5. 程式碼旁邊有註解 建議看一下 不然不知道我在寫甚麼東西 
 
 var insidekind = [];
 var insidecount = [];
@@ -28,7 +28,7 @@ const {
 let root;
 var pagenum;
 // 抓取 url 網頁
-for (pagenum = 1; pagenum <= 99; pagenum++) {
+for (pagenum = 1; pagenum <= 20; pagenum++) {
     var url = "https://www.setn.com/ViewAll.aspx?p=" + pagenum;
     fetch(url)
         .then(res => res.text()) //傳回來的東西 抓文字檔
@@ -49,14 +49,14 @@ function extractData(root, pagenum) {
         kind = kinds[i].rawText; //node的類別
         context = nodes[i].rawText.trim(); // node的文字
         Url = nodes[i].getAttribute('href'); // node的href
-        if (Url.includes("star")) {
+        if (Url.includes("https:")) {
             Url = Url;
         } else {
             Url = "https://www.setn.com" + Url;
         }
         //console.log(time.substring(0, 6)); //.substring(0,第幾個)
         if (time.includes(two2date)) {
-            if (Url && Url.includes("News")) { //  url包含New 字樣
+            if (Url && Url.includes("News") || Url.includes("watch")) { //  url包含New 字樣
                 if (insidekind.indexOf(kind) == -1) { //若該種類沒有存過 設定模板
                     insidekind.push(kind); //則加入該種類
                     insidecount.push(0); //count也設為0
@@ -85,11 +85,11 @@ function extractData(root, pagenum) {
         })
     }
 
-    if (pagenum == 99 + 1) {
+    if (pagenum == 20 + 1) {
         console.log(JSON.stringify(answer, null, 2));
         console.log("==========================successfully saved file=================================");
         // // 儲存json
-        fs.writeFile("1081745.json", JSON.stringify(answer, null, 2), function (err) { // 存檔名 . 物件 . 錯誤訊息;
+        fs.writeFile("1081745_1.json", JSON.stringify(answer, null, 2), function (err) { // 存檔名 . 物件 . 錯誤訊息;
             if (err) throw err;
 
         });
