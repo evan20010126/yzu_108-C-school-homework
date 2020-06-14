@@ -1,0 +1,118 @@
+//沒寫別抄 花了不少時間
+
+var insidekind = [];
+var insidecount = [];
+var insidearticle = [];
+// 載入需要的模組，並設定取用名稱
+
+
+
+const fetch = require("node-fetch");
+const HTMLParser = require("node-html-parser");
+const fs = require("fs");
+const {
+    start
+} = require("repl");
+
+// 設定目標網址
+
+
+//設定全域變數
+let root;
+var pagenum;
+// 抓取 url 網頁
+for (pagenum = 1; pagenum <= 20; pagenum++) {
+    var url = "https://www.setn.com/ViewAll.aspx?p=" + pagenum;
+    fetch(url)
+        .then(res => res.text()) //傳回來的東西 抓文字檔
+        .then(body => (root = HTMLParser.parse(body))) //剖兮
+        .then(() => extractData(root, pagenum));
+}
+
+// 解析網頁，取得滾動頭條標題與網址
+function extractData(root, pagenum) {
+    var two2date = twodaysago();
+    var kinds = root.querySelectorAll('div.NewsList div.newslabel-tab a'); //抓到的類別node集合
+    var date = root.querySelectorAll('div.NewsList time'); //抓到的時間node集合
+    var nodes = root.querySelectorAll('div.NewsList a.gt'); //抓到的內容node集合
+    var time, kind, context, Url;
+
+    for (var i = 0; i < nodes.length; i++) {
+        time = date[i].rawText.toString(); //該新聞的日期
+        kind = kinds[i].rawText; //node的類別
+        context = nodes[i].rawText.trim(); // node的文字
+        Url = nodes[i].getAttribute('href'); // node的href
+        if (Url.includes("star")) {
+            Url = Url;
+        } else {
+            Url = "https://www.setn.com" + Url;
+        }
+        //console.log(time.substring(0, 6)); //.substring(0,第幾個)
+        if (time.includes(two2date)) {
+            if (Url && Url.includes("News")) { //  url包含New 字樣
+                if (insidekind.indexOf(kind) == -1) { //若該種類沒有存過 設定模板
+                    insidekind.push(kind); //則加入該種類
+                    insidecount.push(0); //count也設為0
+                    insidearticle.push([]); ////這地方感覺別人有點難搞懂
+                }
+                //將文章塞入
+                insidecount[insidekind.indexOf(kind)]++; //該種類位子的count
+                insidearticle[insidekind.indexOf(kind)].push({
+                    "topic": context,
+                    "date": time,
+                    "url": Url
+                });
+            }
+        }
+    }
+    //console.log(insidekind);
+    //console.log(insidecount);
+    //console.log(insidearticle);
+    // console.log("++++++++++++++++++++++++++++++++++++++++++++++");
+    var answer = [];
+    for (var ansnum = 0; ansnum <= insidekind.length - 1; ansnum++) {
+        answer.push({
+            "tag": insidekind[ansnum],
+            "count": insidecount[ansnum],
+            "articles": insidearticle[ansnum]
+        })
+    }
+
+    if (pagenum == 20 + 1) {
+        console.log(JSON.stringify(answer, null, 2));
+        console.log("==========================successfully saved file=================================");
+        // // 儲存json
+        fs.writeFile("1081745.json", JSON.stringify(answer, null, 2), function (err) { // 存檔名 . 物件 . 錯誤訊息;
+            if (err) throw err;
+
+        });
+    }
+
+    // console.log(insidekind);
+    // console.log(insidecount);
+    // console.log(insidearticle);
+    //console.log( JSON.stringify(objs) ); //jason轉字串
+
+
+}
+
+function twodaysago() {
+    var targetDate;
+    const today = new Date();
+    const preDayNum = 2;
+    const preDayUTC = new Date(today.setDate(today.getDate() - preDayNum));
+    const preDate = preDayUTC.getDate();
+    const preMonth = preDayUTC.getMonth() + 1;
+    targetDate = Process_DateFormat(preMonth) + '/' + Process_DateFormat(preDate);
+
+    return targetDate;
+    // Get_Webcontextents(starURL + curPage);
+}
+
+function Process_DateFormat(value) {
+    if (value.toString().length == 1) {
+        return '0' + value.toString();
+    } else {
+        return value.toString();
+    }
+}
