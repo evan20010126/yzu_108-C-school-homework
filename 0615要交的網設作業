@@ -28,7 +28,7 @@ const {
 let root;
 var pagenum;
 // 抓取 url 網頁
-for (pagenum = 1; pagenum <= 100; pagenum++) {
+for (pagenum = 1; pagenum <= 99; pagenum++) {
     var url = "https://www.setn.com/ViewAll.aspx?p=" + pagenum;
     fetch(url)
         .then(res => res.text()) //傳回來的東西 抓文字檔
@@ -85,7 +85,7 @@ function extractData(root, pagenum) {
         })
     }
 
-    if (pagenum == 100 + 1) {
+    if (pagenum == 99 + 1) {
         console.log(JSON.stringify(answer, null, 2));
         console.log("==========================successfully saved file=================================");
         // // 儲存json
@@ -94,7 +94,6 @@ function extractData(root, pagenum) {
 
         });
     }
-
     // console.log(insidekind);
     // console.log(insidecount);
     // console.log(insidearticle);
