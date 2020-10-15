@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main(){
+    int all;
+    cin >> all;
+    int arr[1000] = {0};
+    arr_num = 0;
+    while (cin >> arr[arr_num]){
+        arr_num++;
+    }
+    int temporary[all] = {0};
+    int i = 0;
+    int j = 0;
+    while(j != 0){
+        for (; i<arr_num[j]; i++){
+            arr[i] = 1;
+        }
+        i++; //white
+        j++;
+    }
+    
+    while (true){
+        
+    }
+    return 0;
+}
